@@ -3,7 +3,7 @@
 Das Ticketsystem soll eine Verkaufsplattform für Veranstaltungseintrittskarten sein.
 Benutzer dieses Ticketsystems sind **Veranstalter** und **Besucher**.
 
-Es existieren Veranstaltungsorte und **Veranstaltunge** ( Events ).
+Es existieren **Veranstaltungsorte** und **Veranstaltunge** ( Events ).
 Eine Veranstaltung besteht aus folgenden Informationselementen:
 * Name
 * Bild
