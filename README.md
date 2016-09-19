@@ -1,10 +1,10 @@
 # Onlineverkaufsplattform für Tickets #
 
 Das Ticketsystem soll eine Verkaufsplattform für Veranstaltungseintrittskarten sein.
-Benutzer dieses Ticketsystems sind **Veranstalter** und **Kunde**.
-Weitere Akteure sind der **Administrator** und potentielle **externe Systeme**.
+Benutzer dieses Ticketsystems sind *Veranstalter* und *Kunde*.
+Weitere Akteure sind der *Administrator* und potentielle *externe Systeme*.
 
-Es existieren **Veranstaltungsorte** (locations) und **Veranstaltungen** (events) und **Veranstaltungsserien** (event_series).
+Es existieren *Veranstaltungsorte* (locations) und *Veranstaltungen* (events) und *Veranstaltungsserien* (event_series).
 
 
 #### Ein Veranstaltungsort (location) besteht aus folgenden Informationselementen: ####
