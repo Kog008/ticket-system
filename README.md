@@ -14,8 +14,8 @@ Es existieren **Veranstaltungsorte** (locations) und **Veranstaltungen** (events
  * textuelle Beschreibung
  * Ticketkategorie
 
-	*Anzahl zur Verfügung stehender Tickets unterteilt in ggf. Anzahl Reihen und Anzahl Plätze pro Reihe.
-	*Ort, Klasse (Loge, VIP), Raum, ... 
+	* Anzahl zur Verfügung stehender Tickets unterteilt in ggf. Anzahl Reihen und Anzahl Plätze pro Reihe.
+	* Ort, Klasse (Loge, VIP), Raum, ... 
 
 
 ## Eine Veranstaltung (Event) besteht aus folgenden Informationselementen: ##
