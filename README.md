@@ -6,6 +6,7 @@ Weitere Akteure sind der **Administrator** und potentielle **externe Systeme**.
 
 Es existieren **Veranstaltungsorte** (locations) und **Veranstaltungen** (events) und **Veranstaltungsserien** (event_series).
 
+
 Ein Veranstaltungsort (location) besteht aus folgenden Informationselementen:
 
  * Name
@@ -14,6 +15,7 @@ Ein Veranstaltungsort (location) besteht aus folgenden Informationselementen:
  * Ticketkategorie
 	*Anzahl zur Verfügung stehender Tickets unterteilt in ggf. Anzahl Reihen und Anzahl Plätze pro Reihe.
 	*Ort, Klasse (Loge, VIP), Raum, ... 
+
 
 Eine Veranstaltung (Event) besteht aus folgenden Informationselementen:
 
@@ -24,6 +26,7 @@ Eine Veranstaltung (Event) besteht aus folgenden Informationselementen:
  * verfügbare Tickets
 
 Veranstalter kann folgende Handlungen durchführen:
+
 
 * registrieren
 * Bilder hochladen (um diese später als Thumbnail einer Veranstaltung zu hinterlegen)
