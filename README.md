@@ -55,3 +55,15 @@ Es existieren *Veranstaltungsorte* (locations), *Veranstaltungen* (events) und *
 #### Externe Systeme ####
 
  * können eine Liste der aktuellen Veranstaltungen über einen RESTful Service abrufen (JSON)
+
+
+# Der Systementwurf #
+
+Die folgenden Abschnitte zeigen in steigenden Detailierungsgraden die unterschiedlichen Entwurfsschritte des Systems, welches durch dieses Projekt implementiert wird.
+
+
+## Das System als Blackbox ##
+
+![00_entwurf_blackbox.png](https://bitbucket.org/repo/BnRroj/images/2851040462-00_entwurf_blackbox.png)
+
+Die primären Benutzer der Onlineticketplattform sind die Veranstalter und ihre Kunden. Veranstalter definieren die Locations, an denen die Events stattfinden. Die Location bestimmt außerdem die zur Verfügung stehenden Tickets. Interessenten können erst einmal ohne Verbindlichkeiten über das Portal durch die Events surfen. Eine Bestellung kann jedoch nur über einen gesonderten Kundenaccount getätigt werden, sofern ein Veranstalter seinerseits über einen gesonderten Veranstalteraccount eine Örtlichkeit und die entsprechende Veranstaltung eingerichtet hat.
