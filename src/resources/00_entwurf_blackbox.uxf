@@ -179,7 +179,8 @@ fontsize=16
       <h>363</h>
     </coordinates>
     <panel_attributes>*Ticketsystem als Blackbox*
-bg=light_gray</panel_attributes>
+bg=light_gray
+layer=-1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -206,8 +207,10 @@ Service</panel_attributes>
     <panel_attributes>symbol=component
 valign=center
 bg=blue
-MySQL DB
-</panel_attributes>
+Externes
+System
+
+layer=1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
