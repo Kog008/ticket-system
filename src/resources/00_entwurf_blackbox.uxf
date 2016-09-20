@@ -64,7 +64,7 @@ sicht</panel_attributes>
     <id>UMLActor</id>
     <coordinates>
       <x>748</x>
-      <y>209</y>
+      <y>154</y>
       <w>132</w>
       <h>121</h>
     </coordinates>
@@ -75,26 +75,26 @@ sicht</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>550</x>
-      <y>231</y>
-      <w>143</w>
+      <y>176</y>
+      <w>121</w>
       <h>55</h>
     </coordinates>
     <panel_attributes>lt=-()
 Admin-
 sicht</panel_attributes>
-    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;90.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>671</x>
-      <y>231</y>
-      <w>132</w>
+      <x>649</x>
+      <y>176</y>
+      <w>154</w>
       <h>44</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;use&gt;&gt;</panel_attributes>
-    <additional_attributes>100.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
@@ -181,5 +181,45 @@ fontsize=16
     <panel_attributes>*Ticketsystem als Blackbox*
 bg=light_gray</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>550</x>
+      <y>297</y>
+      <w>121</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=-()
+RESTful-
+Service</panel_attributes>
+    <additional_attributes>10.0;20.0;90.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>715</x>
+      <y>286</y>
+      <w>154</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>symbol=component
+valign=center
+bg=blue
+MySQL DB
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>649</x>
+      <y>297</y>
+      <w>88</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>60.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>
