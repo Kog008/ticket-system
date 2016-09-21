@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>10</zoom_level>
+  <zoom_level>11</zoom_level>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>90</x>
-      <y>30</y>
-      <w>790</w>
-      <h>610</h>
+      <x>44</x>
+      <y>11</y>
+      <w>880</w>
+      <h>682</h>
     </coordinates>
     <panel_attributes>*Use-Case Diagramm Ticketsystem*
 bg=light_gray
@@ -17,10 +17,10 @@ layer=-2</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>120</x>
-      <y>470</y>
-      <w>60</w>
-      <h>110</h>
+      <x>77</x>
+      <y>495</y>
+      <w>66</w>
+      <h>121</h>
     </coordinates>
     <panel_attributes>Kunde
 lw=2
@@ -30,10 +30,10 @@ layer=1</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>100</x>
-      <y>100</y>
-      <w>100</w>
-      <h>110</h>
+      <x>55</x>
+      <y>88</y>
+      <w>110</w>
+      <h>121</h>
     </coordinates>
     <panel_attributes>Veranstalter
 lw=2
@@ -43,25 +43,10 @@ layer=1</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>260</x>
-      <y>310</y>
-      <w>130</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>Konto
-verwalten*
-bg=white
-transparency=0
-layer=1</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>370</x>
-      <y>530</y>
-      <w>130</w>
-      <h>90</h>
+      <x>352</x>
+      <y>550</y>
+      <w>143</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>Events
 individuell
@@ -75,10 +60,10 @@ layer=1</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>260</x>
-      <y>450</y>
-      <w>130</w>
-      <h>90</h>
+      <x>242</x>
+      <y>429</y>
+      <w>143</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>Buchung
 durchführen
@@ -90,13 +75,15 @@ layer=1</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>480</x>
-      <y>150</y>
-      <w>130</w>
-      <h>60</h>
+      <x>484</x>
+      <y>198</y>
+      <w>154</w>
+      <h>77</h>
     </coordinates>
-    <panel_attributes>Veranstaltung
-verwalten*
+    <panel_attributes>Event
+verwalten
+--
+Anmeldung
 bg=white
 transparency=0
 layer=1</panel_attributes>
@@ -105,36 +92,27 @@ layer=1</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>260</x>
-      <y>210</y>
-      <w>130</w>
-      <h>60</h>
+      <x>209</x>
+      <y>198</y>
+      <w>154</w>
+      <h>77</h>
     </coordinates>
-    <panel_attributes>Örtlichkeit
-verwalten*
+    <panel_attributes>Location
+verwalten
+--
+Anmeldung
 bg=white
 transparency=0
 layer=1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>170</x>
-      <y>130</y>
-      <w>330</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;180.0;70.0;310.0;50.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>700</x>
-      <y>110</y>
-      <w>140</w>
-      <h>60</h>
+      <x>715</x>
+      <y>99</y>
+      <w>154</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>symbol=component
 valign=center
@@ -148,65 +126,43 @@ Datenbank
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>170</x>
-      <y>130</y>
-      <w>120</w>
-      <h>120</h>
+      <x>132</x>
+      <y>121</y>
+      <w>154</w>
+      <h>121</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;100.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;115.0;82.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>170</x>
-      <y>480</y>
-      <w>110</w>
-      <h>50</h>
+      <x>132</x>
+      <y>484</y>
+      <w>132</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;30.0;90.0;20.0</additional_attributes>
+    <additional_attributes>10.0;50.0;100.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>170</x>
-      <y>500</y>
-      <w>220</w>
-      <h>90</h>
+      <x>132</x>
+      <y>528</y>
+      <w>242</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;200.0;70.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>570</x>
-      <y>160</y>
-      <w>220</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>200.0;10.0;200.0;80.0;10.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>600</x>
-      <y>130</y>
-      <w>120</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;40.0;100.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;200.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>500</x>
-      <y>460</y>
-      <w>130</w>
-      <h>90</h>
+      <x>495</x>
+      <y>473</y>
+      <w>143</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>Buchung
 stornieren
@@ -219,23 +175,12 @@ layer=1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>610</x>
-      <y>160</y>
-      <w>180</w>
-      <h>340</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;320.0;160.0;180.0;160.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLHierarchy</id>
     <coordinates>
-      <x>660</x>
-      <y>360</y>
-      <w>210</w>
-      <h>250</h>
+      <x>671</x>
+      <y>374</y>
+      <w>231</w>
+      <h>275</h>
     </coordinates>
     <panel_attributes>type=Actor
 transparency=0
@@ -253,27 +198,28 @@ lw=2
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>480</x>
-      <y>290</y>
-      <w>130</w>
-      <h>90</h>
+      <x>319</x>
+      <y>308</y>
+      <w>220</w>
+      <h>88</h>
     </coordinates>
-    <panel_attributes>Anmelden
+    <panel_attributes>valign=center
+Kontoverwaltung*
 --
-Zugang
-vorhanden
+Registrieren /
+Anmelden
 bg=white
 transparency=0
-layer=1</panel_attributes>
+layer=2</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>220</x>
-      <y>70</y>
-      <w>430</w>
-      <h>560</h>
+      <x>187</x>
+      <y>44</y>
+      <w>473</w>
+      <h>627</h>
     </coordinates>
     <panel_attributes>symbol=component
 halign=center
@@ -287,110 +233,86 @@ lw=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>320</y>
-      <w>120</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;30.0;100.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>170</x>
-      <y>350</y>
-      <w>110</w>
-      <h>180</h>
+      <x>132</x>
+      <y>352</y>
+      <w>209</w>
+      <h>209</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;160.0;90.0;10.0</additional_attributes>
+    <additional_attributes>10.0;170.0;170.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
-      <y>350</y>
-      <w>160</w>
-      <h>140</h>
+      <x>374</x>
+      <y>385</y>
+      <w>132</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;includes&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;120.0;120.0;10.0</additional_attributes>
+    <additional_attributes>10.0;80.0;50.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>480</y>
-      <w>140</w>
-      <h>40</h>
+      <x>374</x>
+      <y>484</y>
+      <w>143</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;includes&gt;&gt;</panel_attributes>
+    <additional_attributes>110.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>451</x>
+      <y>385</y>
+      <w>143</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+r2=
+&lt;&lt;includes&gt;&gt;</panel_attributes>
+    <additional_attributes>70.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>132</x>
+      <y>121</y>
+      <w>209</w>
+      <h>242</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;170.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>352</x>
+      <y>209</y>
+      <w>154</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;includes&gt;&gt;</panel_attributes>
     <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>530</x>
-      <y>370</y>
-      <w>110</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-r2=
-&lt;&lt;includes&gt;&gt;</panel_attributes>
-    <additional_attributes>30.0;90.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>170</x>
-      <y>130</y>
-      <w>110</w>
-      <h>240</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;90.0;220.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>600</x>
-      <y>160</y>
-      <w>190</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>170.0;10.0;170.0;170.0;10.0;170.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>380</x>
-      <y>180</y>
-      <w>130</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-&lt;&lt;includes&gt;&gt;</panel_attributes>
-    <additional_attributes>110.0;10.0;10.0;50.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>290</x>
-      <y>110</y>
-      <w>160</w>
-      <h>80</h>
+      <x>352</x>
+      <y>88</y>
+      <w>176</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>Ticket-
 verkäufe einsehen
 --
-Veranstaltung
-vorh.
+Anmeldung
 bg=white
 transparency=0
 layer=1</panel_attributes>
@@ -399,56 +321,45 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>170</x>
-      <y>120</y>
-      <w>140</w>
-      <h>40</h>
+      <x>132</x>
+      <y>110</y>
+      <w>242</w>
+      <h>44</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>440</x>
-      <y>120</y>
-      <w>280</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>540</x>
-      <y>200</y>
-      <w>120</w>
-      <h>120</h>
+      <x>473</x>
+      <y>231</y>
+      <w>110</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;includes&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;50.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>230</y>
-      <w>140</w>
-      <h>90</h>
+      <x>352</x>
+      <y>231</y>
+      <w>110</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;includes&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;120.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;78.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>220</x>
-      <y>610</y>
-      <w>280</w>
-      <h>30</h>
+      <x>187</x>
+      <y>649</y>
+      <w>308</w>
+      <h>33</h>
     </coordinates>
     <panel_attributes>* Detailierter Use-Case verfügbar
 halign=left
@@ -460,45 +371,72 @@ lw=0
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>220</y>
-      <w>190</w>
-      <h>40</h>
+      <x>649</x>
+      <y>231</y>
+      <w>154</w>
+      <h>55</h>
     </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+    <panel_attributes>lt=)-
+m2=require
+</panel_attributes>
+    <additional_attributes>110.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>580</x>
-      <y>250</y>
-      <w>210</w>
-      <h>40</h>
+      <x>781</x>
+      <y>154</y>
+      <w>88</w>
+      <h>121</h>
     </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;20.0;190.0;20.0</additional_attributes>
+    <panel_attributes>lt=-()
+m1=provide
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>460</x>
-      <y>250</y>
-      <w>120</w>
-      <h>40</h>
+      <x>132</x>
+      <y>121</y>
+      <w>418</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;20.0;100.0;20.0</additional_attributes>
+    <additional_attributes>10.0;10.0;355.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>260</y>
-      <w>120</w>
-      <h>70</h>
+      <x>132</x>
+      <y>506</y>
+      <w>385</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;50.0;60.0;10.0;100.0;10.0</additional_attributes>
+    <additional_attributes>10.0;30.0;330.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>176</x>
+      <y>341</y>
+      <w>506</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>lw=2</panel_attributes>
+    <additional_attributes>10.0;10.0;440.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>517</x>
+      <y>121</y>
+      <w>121</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>30.0;70.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

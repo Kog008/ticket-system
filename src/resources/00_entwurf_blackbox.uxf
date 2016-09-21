@@ -41,7 +41,7 @@ sicht</panel_attributes>
     <id>UMLActor</id>
     <coordinates>
       <x>55</x>
-      <y>264</y>
+      <y>242</y>
       <w>66</w>
       <h>121</h>
     </coordinates>
@@ -54,11 +54,11 @@ sicht</panel_attributes>
       <x>110</x>
       <y>209</y>
       <w>165</w>
-      <h>121</h>
+      <h>99</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;use&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;90.0;130.0;90.0;130.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;130.0;70.0;130.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLActor</id>
@@ -174,9 +174,9 @@ fontsize=16
     <id>UMLFrame</id>
     <coordinates>
       <x>33</x>
-      <y>22</y>
+      <y>33</y>
       <w>847</w>
-      <h>363</h>
+      <h>341</h>
     </coordinates>
     <panel_attributes>*Ticketsystem als Blackbox*
 bg=light_gray
