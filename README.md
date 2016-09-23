@@ -58,18 +58,21 @@ Es existieren *Veranstaltungsorte* (locations), *Veranstaltungen* (events) und *
 
 
 # Der Systementwurf #
-
 Die folgenden Abschnitte zeigen in steigenden Detailierungsgraden die unterschiedlichen Entwurfsschritte des Systems, welches durch dieses Projekt implementiert wird.
 
 
 ## Das System als Blackbox ##
-
 ![00_entwurf_blackbox.png](https://bitbucket.org/repo/BnRroj/images/2851040462-00_entwurf_blackbox.png)
-
 Die primären Benutzer der Onlineticketplattform sind die Veranstalter und ihre Kunden. Veranstalter definieren die Locations, an denen die Events stattfinden. Die Location bestimmt außerdem die zur Verfügung stehenden Tickets. Interessenten können erst einmal ohne Verbindlichkeiten über das Portal durch die Events surfen. Eine Bestellung kann jedoch nur über einen gesonderten Kundenaccount getätigt werden, sofern ein Veranstalter seinerseits über einen gesonderten Veranstalteraccount eine Örtlichkeit und die entsprechende Veranstaltung eingerichtet hat.
 
+
 ## Anwendungsfälle ##
-
 ![01_entwurf_usecases.png](https://bitbucket.org/repo/BnRroj/images/2185370120-01_entwurf_usecases.png)
-
 Obige Abbildung zeigt grob die möglichen use cases, die von den in der Systembeschreibung genannten Nutzern über die verschiedenen Schnittstellen durchgeführt werden können. Diesen Anwendungsfällen geben aber nur einen ersten Ausblick auf die noch zu implementierende Geschäftslogik. Im Folgenden werden die abgegrenzten use cases in Aktivitätendiagrammen genauer ausgeführt.
+
+
+### Use case Kontoverwaltung ###
+
+Eine Grundfunktionalität der Ticketplattform ist die Anmeldung am Portal. Damit dies möglich ist muss der Nutzer sich ein Konto erstellen. Während des Registrierungsprozess entscheidet der Benutzer, ob ein Veranstalterkonto, oder ein Kundenkonto erstellen möchte. Ersters wird benötigt, um Locations zu erstellen und Events auszurichten. Zu diesen Veranstaltungen können nun geneigte Benutzer über deren Kundenkonto Eintrittskarten zur gewählten Veranstaltung.
+Hat man sich an seinem Konto angemeldet können die im Konto hinterlegten Benutzerdaten geändert, oder das Konto selbst wieder gelöscht werden.
+![02b_entwurf_usecase_kontoVerwalten.png](https://bitbucket.org/repo/BnRroj/images/904828375-02b_entwurf_usecase_kontoVerwalten.png)
