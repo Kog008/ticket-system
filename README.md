@@ -67,3 +67,9 @@ Die folgenden Abschnitte zeigen in steigenden Detailierungsgraden die unterschie
 ![00_entwurf_blackbox.png](https://bitbucket.org/repo/BnRroj/images/2851040462-00_entwurf_blackbox.png)
 
 Die primären Benutzer der Onlineticketplattform sind die Veranstalter und ihre Kunden. Veranstalter definieren die Locations, an denen die Events stattfinden. Die Location bestimmt außerdem die zur Verfügung stehenden Tickets. Interessenten können erst einmal ohne Verbindlichkeiten über das Portal durch die Events surfen. Eine Bestellung kann jedoch nur über einen gesonderten Kundenaccount getätigt werden, sofern ein Veranstalter seinerseits über einen gesonderten Veranstalteraccount eine Örtlichkeit und die entsprechende Veranstaltung eingerichtet hat.
+
+## Anwendungsfälle ##
+
+![01_entwurf_usecases.png](https://bitbucket.org/repo/BnRroj/images/2185370120-01_entwurf_usecases.png)
+
+Obige Abbildung zeigt grob die möglichen use cases, die von den in der Systembeschreibung genannten Nutzern über die verschiedenen Schnittstellen durchgeführt werden können. Diesen Anwendungsfällen geben aber nur einen ersten Ausblick auf die noch zu implementierende Geschäftslogik. Im Folgenden werden die abgegrenzten use cases in Aktivitätendiagrammen genauer ausgeführt.
