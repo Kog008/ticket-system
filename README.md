@@ -72,7 +72,12 @@ Obige Abbildung zeigt grob die möglichen use cases, die von den in der Systembe
 
 
 ### Use case Kontoverwaltung ###
-
+![02b_entwurf_usecase_kontoVerwalten.png](https://bitbucket.org/repo/BnRroj/images/904828375-02b_entwurf_usecase_kontoVerwalten.png)
 Eine Grundfunktionalität der Ticketplattform ist die Anmeldung am Portal. Damit dies möglich ist muss der Nutzer sich ein Konto erstellen. Während des Registrierungsprozess entscheidet der Benutzer, ob ein Veranstalterkonto, oder ein Kundenkonto erstellen möchte. Ersters wird benötigt, um Locations zu erstellen und Events auszurichten. Zu diesen Veranstaltungen können nun geneigte Benutzer über deren Kundenkonto Eintrittskarten zur gewählten Veranstaltung.
 Hat man sich an seinem Konto angemeldet können die im Konto hinterlegten Benutzerdaten geändert, oder das Konto selbst wieder gelöscht werden.
-![02b_entwurf_usecase_kontoVerwalten.png](https://bitbucket.org/repo/BnRroj/images/904828375-02b_entwurf_usecase_kontoVerwalten.png)
+
+#### Activity Kontoverwaltung ####
+![03a_activity_kontoVerwalten.png](https://bitbucket.org/repo/BnRroj/images/1507695757-03a_activity_kontoVerwalten.png)
+Der Prozess der Kontoverwaltung spielt sich schematisch dargestelt wie folgt ab:
+Sofern noch kein entsprechendes Konto existiert, entscheidet sich der Benutzer eingangs für die Art der Registrierung. Möchte er ein Veranstalterkonto eröffnen, so muss zusätzlich noch ein Geschaftsnachweis erbracht werden. Dieser ist in Form einer Kopie des Handelsregistereintrages, oder Gewerbescheins denkbar, wird im Zuge dieser Projektaufgabe aber via Checkbox implementiert. Ist ein Konto bereits vorhanden, kann direkt mit der Anmeldung fortgefahren werden.
+Dieser Prozess ist 
