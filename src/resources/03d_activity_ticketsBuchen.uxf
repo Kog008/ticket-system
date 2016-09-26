@@ -136,7 +136,7 @@ r2=[ löschen ]</panel_attributes>
     <panel_attributes>transparency=0
 fontsize=10
 layer=1
-&lt;&lt;booking.java&gt;&gt;
+*booking*
 Package::model
 --
 - bookingId: Integer
@@ -423,8 +423,8 @@ layer=1</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>504</x>
-      <y>207</y>
+      <x>441</x>
+      <y>225</y>
       <w>126</w>
       <h>36</h>
     </coordinates>
@@ -438,13 +438,13 @@ transparency=0</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>567</x>
+      <x>504</x>
       <y>189</y>
-      <w>117</w>
+      <w>180</w>
       <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>110.0;40.0;110.0;10.0;10.0;10.0;10.0;20.0</additional_attributes>
+    <additional_attributes>180.0;40.0;180.0;10.0;80.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLState</id>
