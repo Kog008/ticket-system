@@ -18,5 +18,10 @@ public class Section
     // number of seats in a row
     private Integer rowCapacity;
 
-    private Ticket[][] numberOfTickets = new Ticket[numberOfRows][rowCapacity];
+    private Ticket[][] numberOfTickets;
+
+    public Section( SectionType sectionType )
+    {
+        numberOfTickets = new Ticket[numberOfRows][rowCapacity];
+    }
 }

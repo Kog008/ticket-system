@@ -35,7 +35,13 @@ import java.time.LocalDate;
  * @author Gabriel Kögler
  */
 @Entity
-@Table( name = "user" )
+@Table( name = "User" )
+/*
+    An abstract class can be an entity either. All subclasses will be mapped in one table, as long as they are entities
+    too.
+ */
+@Inheritance( strategy = InheritanceType.SINGLE_TABLE )
+//@DiscriminatorValue( "userType" )
 public abstract class AbstractUser
 {
     @Id
@@ -121,6 +127,26 @@ public abstract class AbstractUser
     protected void setUserType ( UserType userType )
     {
         this.userType = userType;
+    }
+    //endregion
+
+    //region equals() and hashCode()
+    @Override
+    public boolean equals ( Object o )
+    {
+        if (this == o) return true;
+        if (o == null || getClass () != o.getClass ()) return false;
+
+        AbstractUser that = (AbstractUser) o;
+
+        return userId.equals ( that.userId );
+
+    }
+
+    @Override
+    public int hashCode ()
+    {
+        return userId.hashCode ();
     }
     //endregion
 }

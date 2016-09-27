@@ -12,6 +12,7 @@ import javax.persistence.Entity;
  *
  * @author Gabriel Kögler
  */
+@Entity
 public class Customer extends AbstractUser
 {
     public Customer ()

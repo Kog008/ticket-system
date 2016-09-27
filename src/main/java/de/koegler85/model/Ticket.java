@@ -4,7 +4,7 @@ import javax.persistence.Embeddable;
 import java.math.BigDecimal;
 
 /**
- * 
+ *
  * @author Gabriel Kögler
  */
 @Embeddable

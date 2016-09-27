@@ -1,11 +1,7 @@
 package de.koegler85.model;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * <p>
@@ -41,6 +37,7 @@ import javax.persistence.Id;
  * @author Gabriel Kögler
  *
  * @see Event
+ * @see EventType
  * @see Sectioning
  * @see Section
  */
@@ -60,7 +57,26 @@ public class Location
     @Embedded
     private Address address;
 
-    private String description;
+    /*
+        Information for sectioning and calculating the amount of tickets.
+        Hibernate mapping for this properties is not necessary.
 
+        Total amount of possible section of seats, depending on the location.
+        A stadion for example can have 100 sections, a town hall only 5.
+     */
+    @Transient
+    private Short numberOfSections;
+    @Transient
+    private Short numberOfRowsInSection;
+    @Transient
+    private Short numberOfSeatsInRow;
+
+    @Embedded
     private Sectioning sectioning;
+
+    /*
+        An event takes place in exactly one location || a location hosts many events.
+     */
+    @OneToMany( mappedBy = "location" )
+    private List<Event> events;
 }

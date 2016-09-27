@@ -1,6 +1,6 @@
 package de.koegler85.model;
 
-import javax.persistence.Table;
+import javax.persistence.Entity;
 
 /**
  *<p>
@@ -12,7 +12,7 @@ import javax.persistence.Table;
  *
  * @author Gabriel Kögler
  */
-@Table( name = "user" )
+@Entity
 public class Promoter extends AbstractUser
 {
     public Promoter ( )
