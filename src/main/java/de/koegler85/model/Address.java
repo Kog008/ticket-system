@@ -5,9 +5,11 @@ import java.io.Serializable;
 
 /**
  *<p>
- *  Reuseable address object for injection to promoter and customer,
- *  but without a relationship in the relational database model
+ *  Reuseable address object for injection to users like Promoter and customer,
+ *  but without a relationship in the relational database model.
  * </p>
+ *
+ * @see AbstractUser
  *
  * @author Gabriel Kögler
  */
@@ -16,11 +18,22 @@ public class Address implements Serializable
 {
     /* declaration of fields - the interessting part */
     private String street;
-    private Short postalCode;
+    private Integer postalCode;
     private String city;
 
     //region boilerplate code: constructor, equals(), hashCode() and getter & setter
-    public Address ( String street, Short postalCode, String city )
+
+    /**
+     * <p>
+     *     A classic constructor, which sets every member of the class.
+     * </p>
+     *
+     * @param street        part of the address which gathers name of street and corresponding house number at one
+     *                      <code>String</code> object
+     * @param postalCode    the postal code as 5 ciphers as <code>Integer</code> object
+     * @param city          city name as <code>String</code> object
+     */
+    public Address ( String street, Integer postalCode, String city )
     {
         this.street = street;
         this.postalCode = postalCode;
@@ -50,6 +63,13 @@ public class Address implements Serializable
         return result;
     }
 
+    /**
+     * <p>
+     *     Overrides the <code>toString</code> method from <code>object</code> class.
+     * </p>
+     *
+     * @return  A formatted String to display all member of this class
+     */
     @Override
     public String toString ()
     {
@@ -67,12 +87,12 @@ public class Address implements Serializable
         this.street = street;
     }
 
-    public Short getPostalCode ()
+    public Integer getPostalCode ()
     {
         return postalCode;
     }
 
-    public void setPostalCode ( Short postalCode )
+    public void setPostalCode ( Integer postalCode )
     {
         this.postalCode = postalCode;
     }
