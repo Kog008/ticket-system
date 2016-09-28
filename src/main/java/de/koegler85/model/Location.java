@@ -1,6 +1,10 @@
 package de.koegler85.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -39,7 +43,6 @@ import java.util.List;
  * @see Event
  * @see EventType
  * @see Sectioning
- * @see Section
  */
 @Entity
 public class Location
@@ -51,32 +54,109 @@ public class Location
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long eventId;
 
-    @Column( unique = true )
+    @Size( min = 5, max = 100, message = "ERROR: '${validatedValue}' has wrong pattern size - must be between {min} and {max}" )
+    @NotEmpty
+    @Column( length = 15, unique = true )
     private String name;
 
     @Embedded
+    @NotEmpty
     private Address address;
 
     /*
         Information for sectioning and calculating the amount of tickets.
-        Hibernate mapping for this properties is not necessary.
 
         Total amount of possible section of seats, depending on the location.
         A stadion for example can have 100 sections, a town hall only 5.
+        It is an user option to choose for.
      */
-    @Transient
+    @Size( min = 1, max = 100, message = "ERROR: Must be between {min} and {max}." )
+    @NotEmpty
+    @Column( name = "sections" )
     private Short numberOfSections;
-    @Transient
+
+    @Size( min = 1, max = 50, message = "ERROR: Must be between {min} and {max}." )
+    @NotEmpty
+    @Column( name = "rows in section" )
     private Short numberOfRowsInSection;
-    @Transient
+
+    @Size( min = 1, max = 100, message = "ERROR: Must be between {min} and {max}." )
+    @NotEmpty
+    @Column( name = "seats in row" )
     private Short numberOfSeatsInRow;
 
-    @Embedded
-    private Sectioning sectioning;
-
+    /*
+                +---------------------------+
+                |                           |
+                |   database relations      |
+                |                           |
+                +---------------------------+
+     */
     /*
         An event takes place in exactly one location || a location hosts many events.
      */
     @OneToMany( mappedBy = "location" )
     private List<Event> events;
+
+    //region Getter and Setter
+    public String getName ()
+    {
+        return name;
+    }
+
+    public void setName ( String name )
+    {
+        this.name = name;
+    }
+
+    public Address getAddress ()
+    {
+        return address;
+    }
+
+    public void setAddress ( Address address )
+    {
+        this.address = address;
+    }
+
+    public Short getNumberOfSections ()
+    {
+        return numberOfSections;
+    }
+
+    public void setNumberOfSections ( Short numberOfSections )
+    {
+        this.numberOfSections = numberOfSections;
+    }
+
+    public Short getNumberOfRowsInSection ()
+    {
+        return numberOfRowsInSection;
+    }
+
+    public void setNumberOfRowsInSection ( Short numberOfRowsInSection )
+    {
+        this.numberOfRowsInSection = numberOfRowsInSection;
+    }
+
+    public Short getNumberOfSeatsInRow ()
+    {
+        return numberOfSeatsInRow;
+    }
+
+    public void setNumberOfSeatsInRow ( Short numberOfSeatsInRow )
+    {
+        this.numberOfSeatsInRow = numberOfSeatsInRow;
+    }
+
+    public List<Event> getEvents ()
+    {
+        return events;
+    }
+
+    public void setEvents ( List<Event> events )
+    {
+        this.events = events;
+    }
+    //endregion
 }

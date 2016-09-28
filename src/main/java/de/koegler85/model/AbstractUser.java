@@ -1,8 +1,12 @@
 package de.koegler85.model;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 /**
@@ -48,16 +52,22 @@ public abstract class AbstractUser
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long userId;
 
-    @NotEmpty
+    @NotEmpty( message = "ERROR: mandatory field" )
+    @Email( message = "ERROR: malformed email address")
     @Column(unique = true, nullable = false )
     private String email;
 
+    @NotBlank( message = "ERROR: mandatory field" )
+    @Size( min = 5, max = 20, message = "ERROR: '${validatedValue}' has wrong pattern size - must be between {min} and {max}" )
+    @Pattern ( regexp = "^[a-zA-Z0-9_]+$", message = "ERROR: malformed user name" )
     private String name;
 
     @Temporal (TemporalType.DATE )
+    @NotEmpty( message = "ERROR: mandatory field" )
     private LocalDate birthday;
 
-    @NotEmpty
+    @NotBlank( message = "ERROR: mandatory field" )
+    @Size( min = 6, max = 20, message = "ERROR: between {min} and {max} characters are required" )
     @Column(nullable = false)
     private String password;
 

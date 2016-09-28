@@ -1,8 +1,10 @@
 package de.koegler85.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 /**
@@ -32,18 +34,13 @@ public class Event
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long eventId;
 
+    @Size( min = 5, max = 100, message = "ERROR: '${validatedValue}' has wrong pattern size - must be between {min} and {max}" )
     @NotEmpty
     @Column( unique = true )
     private String name;
 
+    @NotEmpty
     private String description;
-
-    /*
-        An event takes place in exactly one location, but a location hosts many events.
-        event : location
-     */
-    @ManyToOne
-    private Location location;
 
     @NotEmpty
     @Temporal ( TemporalType.TIMESTAMP )
@@ -51,4 +48,84 @@ public class Event
 
     @Enumerated( EnumType.STRING )
     private EventType eventType;
+
+    @Embedded
+    private Sectioning sectioning;
+    /*
+                +---------------------------+
+                |                           |
+                |   database relations      |
+                |                           |
+                +---------------------------+
+     */
+    /*
+        An event takes place in exactly one location, but a location hosts many events.
+        event : location
+     */
+    @ManyToOne
+    @JoinColumn( name = "location" )
+    private Location location;
+
+
+    //region Getter and Setter
+    public String getName ()
+    {
+        return name;
+    }
+
+    public void setName ( String name )
+    {
+        this.name = name;
+    }
+
+    public String getDescription ()
+    {
+        return description;
+    }
+
+    public void setDescription ( String description )
+    {
+        this.description = description;
+    }
+
+    public LocalDateTime getDate ()
+    {
+        return date;
+    }
+
+    public void setDate ( LocalDateTime date )
+    {
+        this.date = date;
+    }
+
+    public EventType getEventType ()
+    {
+        return eventType;
+    }
+
+    public void setEventType ( EventType eventType )
+    {
+        this.eventType = eventType;
+    }
+
+    public Sectioning getSectioning ()
+    {
+        return sectioning;
+    }
+
+    public void setSectioning ( Sectioning sectioning )
+    {
+        this.sectioning = sectioning;
+    }
+
+    public Location getLocation ()
+    {
+        return location;
+    }
+
+    public void setLocation ( Location location )
+    {
+        this.location = location;
+    }
+    //endregion
 }
