@@ -1,10 +1,10 @@
 package de.koegler85.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
@@ -47,12 +47,19 @@ public class Event
     private LocalDateTime date;
 
     @Enumerated( EnumType.STRING )
+    @Column( name = "event type" )
     private EventType eventType;
 
+    @NotEmpty
+    @Column( name = "entrace fee" )
+    private BigDecimal basicEntraceFee;
+
     @Embedded
+    @Transient
     private Sectioning sectioning;
-    /*
-                +---------------------------+
+
+
+    /*          +---------------------------+
                 |                           |
                 |   database relations      |
                 |                           |
@@ -127,5 +134,16 @@ public class Event
     {
         this.location = location;
     }
+
+    public BigDecimal getBasicEntraceFee ()
+    {
+        return basicEntraceFee;
+    }
+
+    public void setBasicEntraceFee ( BigDecimal basicEntraceFee )
+    {
+        this.basicEntraceFee = basicEntraceFee;
+    }
+
     //endregion
 }

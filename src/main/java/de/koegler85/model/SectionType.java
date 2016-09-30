@@ -1,5 +1,7 @@
 package de.koegler85.model;
 
+import java.math.BigDecimal;
+
 /**
  * Class <code>SectionType</code> holds the different possible types of sections every location can has.
  * Each SectionType is connected to a factor, which can be used later to calculate ticket values
@@ -9,19 +11,19 @@ package de.koegler85.model;
  */
 public enum SectionType
 {
-    STANDING ( 1 ),
-    ORCHESTRA ( 1 ),
-    GALLERY ( 2 ),
-    LOGE ( 5 );
+    STANDING ( new BigDecimal ( 1 ) ),
+    ORCHESTRA ( new BigDecimal ( 1 ) ),
+    GALLERY ( new BigDecimal ( 2 ) ),
+    LOGE ( new BigDecimal ( 5 ) );
 
-    private Integer costFactor;
+    private BigDecimal costFactor;
 
-    SectionType ( Integer factor )
+    SectionType ( BigDecimal factor )
     {
         costFactor = factor;
     }
 
-    public Integer getCostFactor()
+    public BigDecimal getCostFactor()
     {
         return this.costFactor;
     }

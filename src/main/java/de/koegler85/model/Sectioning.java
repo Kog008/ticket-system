@@ -3,6 +3,7 @@ package de.koegler85.model;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.Embeddable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,10 +48,11 @@ public class Sectioning
      */
     public Sectioning ()
     {
+        // depending on eventType
         switch ( event.getEventType () )
         {
             case SPORT:
-                // only GALLERY, section LOGE and section ORCHESTRA are missing ==> numberOfSections - 2
+                // LOGE and ORCHESTRA sections in basement are missing ==> only GALLERY ==> numberOfSections - 2
                 for (int i = 0; i < event.getLocation ().getNumberOfSections () - 2; i++)
                 {
                     Section s = new Section ();
@@ -59,9 +61,48 @@ public class Sectioning
                     sections.add ( s );
                 }
                 break;
+
             case CONCERT:
+                // STANDING section instead of LOGE and ORCHESTRA in basement ==> numberOfSections -1
+
+                // STANDINGs hinzugefügt.
+                Section standing = new Section ();
+                standing.setSectionType ( SectionType.STANDING );
+                sections.add ( standing );
+
+                // STANDINGs already added ==> number of sections left to add numberOfSections -2
+                for ( int i = 0; i < event.getLocation ().getNumberOfSections () -2; i++ )
+                {
+                    Section sec = new Section ();
+                    sec.setSectionType ( SectionType.GALLERY );
+                    sections.add ( sec );
+                }
                 break;
+
             case STAGE:
+                // all natural sections appear ==> LOGE, ORCHESTRA and ( numberOfSections -2 ) x GALLERY
+
+                // adding LOGE to list<section>
+                Section loge = new Section ();
+                loge.setSectionType ( SectionType.LOGE );
+                sections.add ( loge );
+
+                // adding ORCHESTRA to list<section>
+                Section orchestra = new Section ();
+                orchestra.setSectionType ( SectionType.ORCHESTRA );
+                sections.add ( orchestra );
+
+                // adding the left GALLERY sections to list<section>
+                for ( int i = 0; i < event.getLocation ().getNumberOfSections () - 2; i++ )
+                {
+                    Section gallery = new Section ();
+                    gallery.setSectionType ( SectionType.GALLERY );
+                    sections.add ( gallery );
+                }
+                break;
+
+            default:
+                System.out.println ("Error in calculation sectioning");
                 break;
         }
     }
@@ -78,11 +119,21 @@ public class Sectioning
 
         private SectionType sectionType;
 
+        private Short rows;
+        private Short seats;
+
+        /*
+            Because the <<sectionType>> is only by held by the sectioning the section constructor itself
+            cannot use it to calculate tickets initially.
+            Therefor it creates only the reservation matrix <<tickets>>
+            Sectioning have to call the calculation funktion of tickets to fill the matrix with objects.
+         */
         public Section()
         {
-            tickets = new Ticket
-                    [event.getLocation ().getNumberOfRowsInSection ()]
-                    [event.getLocation ().getNumberOfSeatsInRow ()];
+            rows = event.getLocation ().getNumberOfRowsInSection ();
+            seats = event.getLocation ().getNumberOfSeatsInRow ();
+
+            tickets = new Ticket[rows][seats];
         }
 
         public SectionType getSectionType ()
@@ -93,6 +144,20 @@ public class Sectioning
         public void setSectionType ( SectionType sectionType )
         {
             this.sectionType = sectionType;
+        }
+
+        public void createTickets()
+        {
+            OUTER_LOOP:
+            for (int i = 0; i < rows; i++)
+            {
+                INNER_LOOP:
+                for( int j = 0; j < seats; j++ )
+                {
+                    BigDecimal cost = event.getBasicEntraceFee ().multiply ( sectionType.getCostFactor () );
+                    Ticket ticket = new Ticket ( rows, seats, cost );
+                }
+            }
         }
     }
 }
