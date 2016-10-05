@@ -24,6 +24,7 @@ import java.time.LocalDateTime;
  *
  * @see Location
  * @see EventType
+ * @see Sectioning
  *
  * @author Gabriel Kögler
  */
@@ -51,11 +52,10 @@ public class Event
     private EventType eventType;
 
     @NotEmpty
-    @Column( name = "entrace fee" )
+    @Column( name = "base entrance fee" )
     private BigDecimal basicEntraceFee;
 
     @Embedded
-    @Transient
     private Sectioning sectioning;
 
 

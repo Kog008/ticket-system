@@ -3,9 +3,12 @@ package de.koegler85.model;
 import java.math.BigDecimal;
 
 /**
+ * <p>
  * Class <code>SectionType</code> holds the different possible types of sections every location can has.
- * Each SectionType is connected to a factor, which can be used later to calculate ticket values
- * for booking.
+ * Each <code>SectionType</code> is connected to a factor, which can be used later to calculate ticket values
+ * for booking. <<STANDING>> and <<ORCHESTRA>> have no extra charge, but only the base entrance fee.
+ * Cost for tickets in <<GALLERY>> are twice and <<LOGE>> five times greater.
+ * </p>
  *
  * @author Gabriel Kögler
  */

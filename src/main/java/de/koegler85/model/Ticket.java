@@ -4,6 +4,14 @@ import javax.persistence.Embeddable;
 import java.math.BigDecimal;
 
 /**
+ * <p>
+ *     Finally, the ticket is main object of interest, a customer wants to buy. It has a row and seat number.
+ *     More information are not necessary, because the object is only accessible among the sectioning and its
+ *     collection of section objects.
+ * </p>
+ *
+ * @see Sectioning
+ * @see SectionType
  *
  * @author Gabriel Kögler
  */
@@ -19,9 +27,9 @@ public class Ticket
      *
      * @param rowNumber     number of row in section at location
      * @param seatNumber    number of seat in row
-     * @param cost          ticket cost for calculating <code>totalCost</code> in booking
+     * @param cost          ticket cost for calculating <code>totalCost</code> in booking;
+     *                      when calculating the cost value consider the correct <code>sectionType</code>
      *
-     * @see Booking TODO
      */
     public Ticket ( Short rowNumber, Short seatNumber, BigDecimal cost )
     {

@@ -9,10 +9,13 @@ import java.util.List;
 
 /**
  * <p>
- * The <code>Sectioning</code> class calculates depending on the location the eventType the corresponding location's
- * sections and the total amount of sellable tickets.
+ * The <code>sectioning</code> calculates depending on <code>location</code> and <code>event</code>
+ * the different sections and its tickets with all meta information.
+ * Basically <code>sectioning</code> represents a collection of Section objects.
+ * Section is automatically instantiated by calling <code>sectioning</code>. Section is subclass of sectioning,
+ * because it has to know the underlying <code>event</code> to access the <code>eventType</code>.
  *
- * * <ul>
+ * <ul>
  *     <li>
  *         A sport event has only GALLERY sections, because it leaves the STANDINGS, LOGE,
  *         or ORCHESTRA seats for the sporting area.
@@ -30,6 +33,7 @@ import java.util.List;
  * @see Event
  * @see SectionType
  * @see Section
+ * @see Ticket
  *
  * @author Gabriel Kögler
  */
@@ -41,11 +45,6 @@ public class Sectioning
 
     private List<Section> sections = new ArrayList<> ();
 
-
-    /**
-     * The sectioning calculates depending on location and event the total amount of tickets.
-     *
-     */
     public Sectioning ()
     {
         // depending on eventType
@@ -105,25 +104,36 @@ public class Sectioning
                 System.out.println ("Error in calculation sectioning");
                 break;
         }
+
+        // after instanciation of every section object it has to be filled with tickets for booking
+        for (Section s : sections)
+        {
+            s.createTickets ();
+        }
     }
 
     /**
      * <p>
      *     A section is one compartment of a location. It can be a STANDING, GALLERY, ORCHESTRA or LOGE compartment.
-     *     It has <code>numberOfRows</code> and <code>rowCapacity</code>
+     *     It has <code>numberOfRows</code> and <code>rowCapacity</code>. Both short values are used to generate
+     *     a ticket matrix, which holds the sellable ticket instances. Unlike to the list of section objects the
+     *     tickets are not automatically instanciated. You need to explicitly call <code>createTickets()</code>.
      * </p>
      */
     private class Section
     {
+        // ticket matrix with direct access for booking and reservation
         private Ticket[][] tickets;
 
+        // Enum SectionType for calculating the ticket cost and hence the booking cost.
         private SectionType sectionType;
 
+        // for clean code reasons we save the count of rows and seats in between using following variables.
         private Short rows;
         private Short seats;
 
         /*
-            Because the <<sectionType>> is only by held by the sectioning the section constructor itself
+            Because the <<sectionType>> is only held by the sectioning the section constructor itself
             cannot use it to calculate tickets initially.
             Therefor it creates only the reservation matrix <<tickets>>
             Sectioning have to call the calculation funktion of tickets to fill the matrix with objects.
@@ -149,13 +159,14 @@ public class Sectioning
         public void createTickets()
         {
             OUTER_LOOP:
-            for (int i = 0; i < rows; i++)
+            for (short rowNumber = 0; rowNumber < rows; rowNumber++)
             {
                 INNER_LOOP:
-                for( int j = 0; j < seats; j++ )
+                for( short seatNumber = 0; seatNumber < seats; seatNumber++ )
                 {
                     BigDecimal cost = event.getBasicEntraceFee ().multiply ( sectionType.getCostFactor () );
-                    Ticket ticket = new Ticket ( rows, seats, cost );
+                    Ticket ticket = new Ticket ( rowNumber, seatNumber, cost );
+                    tickets[rowNumber][seatNumber] = ticket;
                 }
             }
         }

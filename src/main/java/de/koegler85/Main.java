@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableAutoConfiguration
 public class Main
 {
-    @RequestMapping
+    @RequestMapping( "/" )
     public String home()
     {
         return "hello world";
