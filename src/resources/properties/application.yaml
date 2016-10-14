@@ -1,0 +1,32 @@
+# application.property
+
+# application name -> later applicationname.jar ?
+#spring.application.name=ticketplattform
+
+# database connection
+# embedded tomcat with database pooling is used
+#spring.datasource.url=jdbc:h2:mem:ticketplattform
+#spring.datasource.username=h2user
+#spring.datasource.password=h2pass
+#spring.datasource.driver-class-name=org.h2.Driver
+
+# hibernate settings
+# auto create and deploy order to hibenrate
+#spring.jpa.hibernate.ddl-auto=create-drop
+#spring.jpa.hibernate.show_sql=true
+#spring.jpa.hibernate.format_sql=true
+
+
+
+spring:
+    datasource:
+        url: jdbc:h2:mem:ticketplattform
+        username: sa
+        password: sa
+        driver-class-name: org.h2.Driver
+    jpa:
+        database: H2
+        show-sql: false
+        hibernate:
+            format_sql: true
+            ddl-auto: create-drop

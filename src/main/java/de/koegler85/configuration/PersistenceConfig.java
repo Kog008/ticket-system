@@ -1,16 +1,18 @@
 package de.koegler85.configuration;
 
-import org.hibernate.SessionFactory;
 import org.springframework.core.env.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.instrument.classloading.LoadTimeWeaver;
+import org.springframework.instrument.classloading.tomcat.TomcatLoadTimeWeaver;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.orm.hibernate5.HibernateTransactionManager;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.orm.jpa.JpaVendorAdapter;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.Database;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.util.Properties;
@@ -22,9 +24,9 @@ import static org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType.
  */
 
 @Configuration
-@ConfigurationProperties("properties/application.properties")
+@ConfigurationProperties("properties/application.yaml")
 @EnableTransactionManagement
-public class ConfigDataSource
+public class PersistenceConfig
 {
     @Autowired
     private Environment environment;
@@ -39,7 +41,7 @@ public class ConfigDataSource
      * @see EmbeddedDatabaseBuilder
      * @see EmbeddedDatabase
      */
-    @Bean( name = "DataSource" )
+    @Bean( name = "Datasource" )
     @ConfigurationProperties( prefix = "spring.datasource.url" )
     public EmbeddedDatabase getDatasource ()
     {
@@ -49,27 +51,38 @@ public class ConfigDataSource
             .setScriptEncoding("UTF-8")
             .ignoreFailedDrops(true)
             .addScript("h2/createDatabase.sql")
-            //.addScripts("user_data.sql", "country_data.sql")
             .build();
     }
 
-    /**
-     * <p>
-     *     Sets hibernate session for DAO implementation layer.
-     *     Injects autowired datasource bean and hinbernate properties.
-     * </p>
-     *
-     * @return <code>LocalSessionFactoryBean</code>
-     *
-     * @see
-     */
-    @Bean( name = "sessionFactory" )
-    public LocalSessionFactoryBean getSessionFactory()
+    public JpaVendorAdapter getJpaVendorAdapter()
     {
-        LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean ();
-        sessionFactoryBean.setDataSource ( getDatasource () );
-        sessionFactoryBean.setHibernateProperties ( hibernateProperties() );
-        return sessionFactoryBean;
+        // sets hibernate as jpa provider
+        HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter ();
+
+        adapter.setDatabase ( Database.H2 );
+        adapter.setGenerateDdl ( true );
+        adapter.setShowSql ( true );
+
+        return adapter;
+    }
+
+    public LoadTimeWeaver getLoadTimeWeaver()
+    {
+        LoadTimeWeaver loadTimeWeaver = new TomcatLoadTimeWeaver ();
+
+        return loadTimeWeaver;
+    }
+
+    @Bean( name = "entityManager" )
+    public LocalContainerEntityManagerFactoryBean getEntityManager()
+    {
+        LocalContainerEntityManagerFactoryBean entityManager = new LocalContainerEntityManagerFactoryBean();
+
+        entityManager.setDataSource ( getDatasource () );
+        entityManager.setJpaVendorAdapter ( getJpaVendorAdapter () );
+        entityManager.setLoadTimeWeaver ( getLoadTimeWeaver () );
+
+        return entityManager;
     }
 
     /**
@@ -80,6 +93,7 @@ public class ConfigDataSource
      *
      * @return <code>Property</code>
      */
+    @Deprecated
     private Properties hibernateProperties ()
     {
         Properties properties = new Properties ();
@@ -109,20 +123,5 @@ public class ConfigDataSource
                                  environment.getProperty ( "spring.datasource.password" ) );
 
         return properties;
-    }
-
-    @Bean
-    @Autowired
-    public HibernateTransactionManager getHibernateTransactionManager( SessionFactory sessionFactory )
-    {
-        HibernateTransactionManager transactionManager = new HibernateTransactionManager (  );
-        transactionManager.setSessionFactory ( sessionFactory );
-        return transactionManager;
-    }
-
-    @Bean
-    public PersistenceExceptionTranslationPostProcessor getPersistenceExceptionTranslationPostProcessor()
-    {
-        return new PersistenceExceptionTranslationPostProcessor ();
     }
 }

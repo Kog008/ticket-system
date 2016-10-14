@@ -19,6 +19,12 @@
 		<spring.version>4.3.2.RELEASE</spring.version>
 	</properties>
 
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.1.RELEASE</version>
+	</parent>
+
 	<dependencies>
 
 		<!-- Starter for using Spring Data JPA with Hibernate -->
