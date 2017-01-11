@@ -24,12 +24,18 @@ import static org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType.
  */
 
 @Configuration
-@ConfigurationProperties("properties/application.yaml")
+@ConfigurationProperties
+//@ConfigurationProperties("src/properties/application.yaml")
+//@ConfigurationProperties("properties/application.yaml")
 @EnableTransactionManagement
 public class PersistenceConfig
 {
+    private final Environment environment;
+
     @Autowired
-    private Environment environment;
+    public PersistenceConfig(Environment environment) {
+        this.environment = environment;
+    }
 
     /**
      * <p>
@@ -50,11 +56,11 @@ public class PersistenceConfig
             .setType(H2)
             .setScriptEncoding("UTF-8")
             .ignoreFailedDrops(true)
-            .addScript("h2/createDatabase.sql")
+            .addScript("src/resources/h2/createDatabase.sql")
             .build();
     }
 
-    public JpaVendorAdapter getJpaVendorAdapter()
+    private JpaVendorAdapter getJpaVendorAdapter()
     {
         // sets hibernate as jpa provider
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter ();
@@ -66,11 +72,9 @@ public class PersistenceConfig
         return adapter;
     }
 
-    public LoadTimeWeaver getLoadTimeWeaver()
+    private LoadTimeWeaver getLoadTimeWeaver()
     {
-        LoadTimeWeaver loadTimeWeaver = new TomcatLoadTimeWeaver ();
-
-        return loadTimeWeaver;
+        return new TomcatLoadTimeWeaver();
     }
 
     @Bean( name = "entityManager" )
@@ -93,7 +97,6 @@ public class PersistenceConfig
      *
      * @return <code>Property</code>
      */
-    @Deprecated
     private Properties hibernateProperties ()
     {
         Properties properties = new Properties ();
